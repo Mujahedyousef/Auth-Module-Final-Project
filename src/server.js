@@ -4,11 +4,11 @@ const app = express();
 const cors = require('cors');
 const notFound = require('./errorHandler/404');
 const errorHandler = require('./errorHandler/404');
-const signup = require('./auth/Router/signup');
-const signin = require('./auth/Router/signin');
-const secret = require('./auth/Router/secret');
-const V1Router = require('./auth/Router/V1Router')
-const V2Router = require('./auth/Router/V2Router')
+const signup = require('./auth/router/signup');
+const signin = require('./auth/router/signin');
+const secret = require('./auth/router/secret');
+const V1Router = require('./auth/router/V1Router')
+const V2Router = require('./auth/router/V2Router')
 const bcrypt = require('bcrypt');
 const bearer = require('./auth/middleware/bearer');
 const { user } = require('./auth/models');
@@ -34,9 +34,9 @@ app.get('/users', bearer, async (req, res) => {
 
 function start(port) {
     app.listen(port, () => {
-        console.log(`The server running on https://localhost:${port}`);
-    })
-};
+        console.log(`The server is running on https://localhost:${port}`);
+    });
+}
 
 app.use(errorHandler);
 app.use('*', notFound);
