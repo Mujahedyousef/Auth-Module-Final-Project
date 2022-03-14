@@ -40,7 +40,7 @@ function start(port) {
 
 app.use(errorHandler);
 app.use('*', notFound);
-module.express = {
-    start: start,
-    app: app
+module.exports = {
+    app: app,
+    start: start
 }
