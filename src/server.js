@@ -32,11 +32,14 @@ app.get('/users', bearer, async (req, res) => {
     res.status(200).json(users)
 });
 
+app.use(errorHandler);
+app.use('*', notFound);
 function start(port) {
     app.listen(port, () => {
         console.log(`The server running on https://localhost:${port}`);
     })
 };
+
 
 app.use(errorHandler);
 app.use('*', notFound);
@@ -44,3 +47,4 @@ module.exports = {
     app: app,
     start: start
 }
+
