@@ -4,7 +4,7 @@ const base64 = require('base-64');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 const { user } = require('../models/index');
-const bcrypt=require('bcrypt')
+const bcrypt = require('bcrypt')
 
 
 const basic = async (req, res, next) => {
@@ -18,8 +18,8 @@ const basic = async (req, res, next) => {
             const User = await user.findOne({ where: { username: username } });
             const valid = await bcrypt.compare(password, User.password);
             if (valid) {
-                req.User=User
-                let newToken = jwt.sign({ username: User.username }, SECRET,{expiresIn : 900000})
+                req.User = User
+                let newToken = jwt.sign({ username: User.username }, SECRET, { expiresIn: 900000 })
                 User.token = newToken;
                 res.status(200).json(User)
                 next()
@@ -35,3 +35,6 @@ const basic = async (req, res, next) => {
 }
 
 module.exports = basic;
+
+
+
