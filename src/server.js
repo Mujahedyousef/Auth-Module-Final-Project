@@ -18,13 +18,13 @@ app.use(signup);
 app.use(signin);
 app.use(secret);
 app.use("api/v1", V1Router);
-app.use("api/v2", V1Router);
+app.use("api/v2", V2Router);
 
 
 
 
 app.get('/', (req, res) => {
-    res.status(200).json("Welcome in Home page.")
+    res.status(200).send("Welcome in Home page.")
 });
 
 app.get('/users', bearer, async (req, res) => {

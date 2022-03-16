@@ -31,3 +31,20 @@ const bearer = async (req, res, next) => {
 }
 
 module.exports = bearer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
