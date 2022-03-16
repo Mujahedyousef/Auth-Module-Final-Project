@@ -41,7 +41,10 @@ function start(port) {
 };
 
 
+app.use(errorHandler);
+app.use('*', notFound);
 module.exports = {
     app: app,
     start: start
 }
+
